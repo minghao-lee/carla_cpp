@@ -11,59 +11,65 @@
 
 namespace carla {
 namespace client {
-
+  //这个函数返回Actor当前的位置。
   geom::Location Actor::GetLocation() const {
     return GetEpisode().Lock()->GetActorLocation(*this);
   }
-
+  //返回Actor当前的变换（位置和方向）。
+  //实现方式与GetLocation类似，通过GetEpisode().Lock()->GetActorTransform(*this)获取。
   geom::Transform Actor::GetTransform() const {
     return GetEpisode().Lock()->GetActorTransform(*this);
   }
-
+  //返回Actor当前的速度，以三维向量表示。
+  //通过GetEpisode().Lock()->GetActorVelocity(*this)获取。
   geom::Vector3D Actor::GetVelocity() const {
     return GetEpisode().Lock()->GetActorVelocity(*this);
   }
+  //返回Actor当前的角速度，也是以三维向量表示。
+  //实现方式同上，通过GetEpisode().Lock()->GetActorAngularVelocity(*this)获取。
 
   geom::Vector3D Actor::GetAngularVelocity() const {
     return GetEpisode().Lock()->GetActorAngularVelocity(*this);
   }
-
+  //返回Actor当前的加速度，以三维向量表示。
+  //通过GetEpisode().Lock()->GetActorAcceleration(*this)获取。
   geom::Vector3D Actor::GetAcceleration() const {
     return GetEpisode().Lock()->GetActorAcceleration(*this);
   }
-
+  //返回指定组件在世界空间中的变换。
+  //这里的componentName是一个字符串，表示Actor上某个特定组件的名称。
   geom::Transform Actor::GetComponentWorldTransform(const std::string componentName) const {
     return GetEpisode().Lock()->GetActorComponentWorldTransform(*this, componentName);
   }
-
+  //返回指定组件相对于Actor自身的变换。
   geom::Transform Actor::GetComponentRelativeTransform(const std::string componentName) const {
     return GetEpisode().Lock()->GetActorComponentRelativeTransform(*this, componentName);
   }
-
+  //这个函数返回一个std::vector<geom::Transform>类型的值，代表Actor中所有骨骼的世界变换（World Transforms）。
   std::vector<geom::Transform> Actor::GetBoneWorldTransforms() const {
     return GetEpisode().Lock()->GetActorBoneWorldTransforms(*this);
   }
-
+  //与GetBoneWorldTransforms类似，这个函数返回Actor中所有骨骼的相对变换（Relative Transforms）
   std::vector<geom::Transform> Actor::GetBoneRelativeTransforms() const {
     return GetEpisode().Lock()->GetActorBoneRelativeTransforms(*this);
   }
-
+  //这个函数返回一个std::vector<std::string>类型的值，包含Actor中所有组件的名称。
   std::vector<std::string> Actor::GetComponentNames() const {
     return GetEpisode().Lock()->GetActorComponentNames(*this);
   }
-
+  //这个函数返回一个std::vector<std::string>类型的值，包含Actor中所有骨骼的名称
   std::vector<std::string> Actor::GetBoneNames() const {
     return GetEpisode().Lock()->GetActorBoneNames(*this);
   } 
-
+  //这个函数返回一个std::vector<geom::Transform>类型的值，代表Actor中所有插槽（Sockets）的世界变换
   std::vector<geom::Transform> Actor::GetSocketWorldTransforms() const {
     return GetEpisode().Lock()->GetActorSocketWorldTransforms(*this);
   }
-
+  //与GetSocketWorldTransforms类似，这个函数返回Actor中所有插槽的相对变换
   std::vector<geom::Transform> Actor::GetSocketRelativeTransforms() const {
     return GetEpisode().Lock()->GetActorSocketRelativeTransforms(*this);
   }
-
+  //这个函数返回一个std::vector<std::string>类型的值，包含Actor中所有插槽的名称。
   std::vector<std::string> Actor::GetSocketNames() const {
     return GetEpisode().Lock()->GetActorSocketNames(*this);
   }  

@@ -180,3 +180,10 @@ git rm -rf .
 [54zwz](https://github.com/54zwz)
 [xuebaobizui](https://github.com/xuebaobizui)
 [certain-m](https://github.com/caerain-m)。
+[kuanghy123](https://github.com/kuanghy123)。
+[longxiang06](https://github.com/longxiang06)
+[takagis](https://github.com/takagis)
+[dq1](https://github.com/dq1)
+[xiao-ice666](https://github.com/xiao-ice666)
+[bless416](https://github.com/bless416)
+[haleely](https://github.com/haleely)
